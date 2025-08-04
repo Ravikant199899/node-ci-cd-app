@@ -22,12 +22,10 @@ jobs:
       run: npm install
 
     - name: Build Docker image
-      run: docker build -t ravikant199899/nodejs-demo-app:latest .
+      run: docker build -t jonty0731/nodejs-demo-app:latest .
 
     - name: Login to DockerHub
-      run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "ravikant199899" --password-stdin
-
+      run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
     - name: Push image to DockerHub
-      run: docker push ravikant199899/nodejs-demo-app:latest
-
+      run: docker push jonty0731/nodejs-demo-app:latest
